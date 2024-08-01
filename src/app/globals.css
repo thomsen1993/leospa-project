@@ -3,7 +3,42 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: rgb(0 0 0);
-  --color-secondary: rgb(255 192 203);
-  --color-white: rgb(255 255 255);
+  --color-primary: 0 0 0;
+  --color-secondary: 150 150 150;
+  --color-accent: 253 180 192;
+  --color-white: 255 255 255;
 }
+
+/* FONTS */
+
+@font-face {
+  font-family: 'Themify'; 
+  src: url('/fonts/themify.eot'); 
+  src: url('/fonts/themify.eot?#iefix') format('embedded-opentype'), 
+       url('/fonts/themify.woff') format('woff'), 
+       url('/fonts/themify.ttf') format('truetype'),
+       url('/fonts/themify.svg#Themify') format('svg'); 
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+/* TUTORIAL https://www.designcuts.com/learning-hub/tutorials/how-to-install-and-use-web-fonts/ */
+
+body {
+  font-family: 'Themify', sans-serif;
+}
+
+
+/* My classes */
+
+@layer utilities {
+  .wrapper {
+    @apply max-w-[1536px] mx-auto
+  }
+
+  .wrapper2 {
+    @apply max-w-6xl mx-auto
+  }
+}
+
+/* end my classes */

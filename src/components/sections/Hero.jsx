@@ -1,13 +1,102 @@
-import React from 'react'
+"use client";
+
+import React, { useEffect } from "react";
+
+import Link from "next/link";
+import Image from "next/image";
+
+import useRequestData from "@/hooks/useRequestData";
+
+import logo from "../../../public/images/logo.png";
+import heroImg from "../../../public/images/spa.png";
+import leaf from "../../../public/images/leaf.png";
+
+import { MdOutlinePlayArrow } from "react-icons/md";
 
 const Hero = () => {
+  const { data, isLoading, error, makeRequest } = useRequestData();
+
+  useEffect(() => {
+    makeRequest("http://localhost:5029/hero/", "GET", null);
+  }, []);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error... 😒</p>;
+  if (!data) return null;
+
+  const filteredData = data.filter((item) => item.show);
+
   return (
-    <header>
-      <nav className=''>
-
+    <header className="wrapper2">
+      <nav className="flex justify-between max-w-2xl">
+        <Image src={logo} alt="leospa logo" className="w-24"></Image>
+        <ul className="flex items-end gap-5">
+          {links.map((event, index) => (
+            <li key={index}>
+              <Link
+                href={event.href}
+                className="uppercase text-sm hover:text-accent transition"
+              >
+                {event.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </nav>
+      <Image src={leaf} className="absolute left-0 top-32 w-32"></Image>
+      <div className="grid grid-cols-2 items-center">
+        {filteredData.map((item) => (
+          <div key={item._id} className="">
+            <h2 className="text-sm text-accent uppercase">{item.title1}</h2>
+            <h1 className="text-5xl my-6">{item.title2}.</h1>
+            <p className="text-secondary">{item.content}</p>
+            <div className="flex gap-5 text-sm  mt-10">
+              <Link
+                href="#contact"
+                className="uppercase bg-accent text-whitetxt hover:text-primary transition px-5 py-2"
+              >
+                reserve now
+              </Link>
+              <Link href={item.link} className="flex items-center gap-2 text-secondary">
+                <span className="flex justify-center items-center bg-accent/30 rounded-full w-9 h-9">
+                  <MdOutlinePlayArrow className="text-xl text-accent" />
+                </span>{" "}
+                Watch our story
+              </Link>
+            </div>
+          </div>
+        ))}
+        <Image
+          src={heroImg}
+          alt="leospa hero picture"
+          className="-mt-20 ml-48"
+        ></Image>
+      </div>
     </header>
-  )
-}
+  );
+};
 
-export default Hero
+const links = [
+  {
+    name: "Home",
+    href: "#home",
+  },
+  {
+    name: "About",
+    href: "#about",
+  },
+  {
+    name: "feature",
+    href: "#feature",
+  },
+  {
+    name: "service",
+    href: "#service",
+  },
+  {
+    name: "contact",
+    href: "#contact",
+  },
+];
+
+export default Hero;
