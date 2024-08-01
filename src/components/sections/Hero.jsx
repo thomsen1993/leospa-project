@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
+import Video from "../Video";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -16,6 +18,8 @@ import { MdOutlinePlayArrow } from "react-icons/md";
 const Hero = () => {
   const { data, isLoading, error, makeRequest } = useRequestData();
 
+  const [video, setVideo] = useState(false);
+
   useEffect(() => {
     makeRequest("http://localhost:5029/hero/", "GET", null);
   }, []);
@@ -27,7 +31,7 @@ const Hero = () => {
   const filteredData = data.filter((item) => item.show);
 
   return (
-    <header className="wrapper2">
+    <header className="wrapper2 h-screen">
       <nav className="flex justify-between max-w-2xl">
         <Image src={logo} alt="leospa logo" className="w-24"></Image>
         <ul className="flex items-end gap-5">
@@ -43,8 +47,13 @@ const Hero = () => {
           ))}
         </ul>
       </nav>
-      <Image src={leaf} className="absolute left-0 top-32 w-32"></Image>
-      <div className="grid grid-cols-2 items-center">
+      <Image src={leaf} alt="leaf" className="absolute left-0 top-32 -z-10"></Image>
+      <Image
+        src={heroImg}
+        alt="leospa hero picture"
+        className="absolute top-0 right-0 -z-10"
+      ></Image>
+      <div className="max-w-lg mt-40">
         {filteredData.map((item) => (
           <div key={item._id} className="">
             <h2 className="text-sm text-accent uppercase">{item.title1}</h2>
@@ -57,20 +66,20 @@ const Hero = () => {
               >
                 reserve now
               </Link>
-              <Link href={item.link} className="flex items-center gap-2 text-secondary">
+              <Link
+                href=""
+                className="flex items-center gap-2 text-secondary hover:text-accent transition"
+                onClick={() => setVideo(true)}
+              >
                 <span className="flex justify-center items-center bg-accent/30 rounded-full w-9 h-9">
                   <MdOutlinePlayArrow className="text-xl text-accent" />
                 </span>{" "}
                 Watch our story
               </Link>
             </div>
+            {video && <Video close={() => setVideo(false)} />}
           </div>
         ))}
-        <Image
-          src={heroImg}
-          alt="leospa hero picture"
-          className="-mt-20 ml-48"
-        ></Image>
       </div>
     </header>
   );
