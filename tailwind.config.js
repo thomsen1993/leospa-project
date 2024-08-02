@@ -12,6 +12,7 @@ module.exports = {
         secondary: "rgb(var(--color-secondary) / <alpha-value>)",
         accent: "rgb(var(--color-accent) / <alpha-value>)",
         whitetxt: "rgb(var(--color-white) / <alpha-value>)",
+        bgBtn: "rgb(var(--color-btn) / <alpha-value>)",
       },
     },
   },

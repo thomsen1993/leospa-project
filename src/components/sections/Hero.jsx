@@ -31,7 +31,7 @@ const Hero = () => {
   const filteredData = data.filter((item) => item.show);
 
   return (
-    <header className="wrapper2 h-screen">
+    <header className="wrapper h-screen">
       <nav className="flex justify-between max-w-2xl">
         <Image src={logo} alt="leospa logo" className="w-24"></Image>
         <ul className="flex items-end gap-5">
@@ -39,7 +39,7 @@ const Hero = () => {
             <li key={index}>
               <Link
                 href={event.href}
-                className="uppercase text-sm hover:text-accent transition"
+                className="uppercase hover:text-accent transition"
               >
                 {event.name}
               </Link>
@@ -56,10 +56,10 @@ const Hero = () => {
       <div className="max-w-lg mt-40">
         {filteredData.map((item) => (
           <div key={item._id} className="">
-            <h2 className="text-sm text-accent uppercase">{item.title1}</h2>
+            <p className="text-accent uppercase">{item.title1}</p>
             <h1 className="text-5xl my-6">{item.title2}.</h1>
             <p className="text-secondary">{item.content}</p>
-            <div className="flex gap-5 text-sm  mt-10">
+            <div className="flex gap-5 mt-10">
               <Link
                 href="#contact"
                 className="uppercase bg-accent text-whitetxt hover:text-primary transition px-5 py-2"

@@ -7,17 +7,18 @@
   --color-secondary: 150 150 150;
   --color-accent: 253 180 192;
   --color-white: 255 255 255;
+  --color-btn: 49 57 59;
 }
 
 /* FONTS */
 
 @font-face {
   font-family: 'Themify'; 
-  src: url('/fonts/themify.eot'); 
-  src: url('/fonts/themify.eot?#iefix') format('embedded-opentype'), 
-       url('/fonts/themify.woff') format('woff'), 
-       url('/fonts/themify.ttf') format('truetype'),
-       url('/fonts/themify.svg#Themify') format('svg'); 
+  src: url('/themify.eot'); 
+  src: url('/themify.eot?#iefix') format('embedded-opentype'), 
+       url('/themify.woff') format('woff'), 
+       url('/themify.ttf') format('truetype'),
+       url('/themify.svg#Themify') format('svg'); 
   font-weight: normal; 
   font-style: normal; 
 }
@@ -26,17 +27,23 @@
 
 body {
   font-family: 'Themify', sans-serif;
+  
+}
+
+h2 {
+  @apply text-4xl
+}
+
+h3 {
+  @apply text-2xl
 }
 
 
 /* My classes */
 
 @layer utilities {
-  .wrapper {
-    @apply max-w-[1536px] mx-auto
-  }
 
-  .wrapper2 {
+  .wrapper {
     @apply max-w-6xl mx-auto
   }
 }
