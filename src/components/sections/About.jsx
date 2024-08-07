@@ -30,7 +30,7 @@ const About = () => {
   if (error) return <p>Error... 😒</p>;
   if (!data) return null;
   return (
-    <section className="relative">
+    <section className="relative" id="about">
       <Image
         src={rose}
         alt="china rose"

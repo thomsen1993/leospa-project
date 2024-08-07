@@ -24,7 +24,7 @@ const Slider = () => {
   };
 
   return (
-    <section className="bg-accent/20 py-20 relative">
+    <section className="bg-bg py-20 relative">
       <Image src={quote} alt="quote" className="mx-auto" />
       <div className="wrapper flex overflow-hidden relative">
         <div
@@ -39,7 +39,7 @@ const Slider = () => {
                 alt={event.title}
                 className="mx-auto rounded-full my-10"
               />
-              <p>
+              <p className="text-xl">
                 {event.name},{" "}
                 <span className="text-secondary text-sm">{event.title}</span>
               </p>

@@ -6,12 +6,12 @@ import Video from "../Video";
 
 import Link from "next/link";
 import Image from "next/image";
-
-import useRequestData from "@/hooks/useRequestData";
-
 import logo from "../../../public/images/logo.png";
 import heroImg from "../../../public/images/spa.png";
 import leaf from "../../../public/images/leaf.png";
+
+import useRequestData from "@/hooks/useRequestData";
+
 
 import { MdOutlinePlayArrow } from "react-icons/md";
 

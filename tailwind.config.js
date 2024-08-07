@@ -13,6 +13,7 @@ module.exports = {
         accent: "rgb(var(--color-accent) / <alpha-value>)",
         whitetxt: "rgb(var(--color-white) / <alpha-value>)",
         bgBtn: "rgb(var(--color-btn) / <alpha-value>)",
+        bg: "rgb(var(--color-bg) / 0.2)",
       },
     },
   },
