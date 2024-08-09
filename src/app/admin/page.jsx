@@ -1,8 +1,9 @@
+import HeroAdmin from "@/components/admin/HeroAdmin"
 
 const page = () => {
   return (
-    <main>
-      admin
+    <main className="wrapper">
+      <HeroAdmin/>
     </main>
   )
 }

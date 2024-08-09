@@ -57,7 +57,7 @@ const Hero = () => {
         {filteredData.map((item) => (
           <div key={item._id} className="">
             <p className="text-accent uppercase">{item.title1}</p>
-            <h1 className="text-5xl my-6">{item.title2}.</h1>
+            <h1 className="text-5xl my-6">{item.title2}</h1>
             <p className="text-secondary">{item.content}</p>
             <div className="flex gap-5 mt-10">
               <Link
